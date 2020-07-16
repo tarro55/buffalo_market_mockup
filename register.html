@@ -1,0 +1,59 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container grid-list-xs class="fill-height bg" fluid>
+            <v-flex xs12 md12 class="pa-4">
+                <v-card elevation="12" class="rounded-lg ma-6">
+                    <v-layout row wrap>
+                        <v-flex xs12 md12 class="pa-4 pt-12">
+                            <center>
+                                <h1>สมัครสมาชิก</h1>
+                            </center>
+                            <v-row wrap>
+                                <v-flex xs6 md6 class="pa-16 pt-12">
+                                    
+                                    <v-text-field class="rounded-lg " outlined label="เข้าสู่ระบบ" color="purple darken-1" type="text"></v-text-field>
+                                    <v-text-field class="rounded-lg" outlined label="รหัสผ่าน" color="purple darken-1" name="password" type="password"></v-text-field>
+                                    <v-text-field class="rounded-lg" outlined label="ยืนยันรหัสผ่าน" color="purple darken-1" type="password"></v-text-field>
+                                    <v-text-field class="rounded-lg" outlined label="ชื่อ" color="purple darken-1" type="text"></v-text-field>
+                                    <v-text-field class="rounded-lg" outlined label="นามสกุล" color="purple darken-1" type="text"></v-text-field>
+                                </v-flex>
+                                <v-flex xs6 md6 class="pa-16 pt-12">
+                                    <v-text-field class="rounded-lg" outlined label="ที่อยู่" name="login" color="purple darken-1" type="text"></v-text-field>
+                                    <v-select class="rounded-lg" outlined label="จังหวัด" color="purple darken-1" type="text"></v-select>
+                                    <v-select class="rounded-lg" outlined label="อำเภอ" name="login" color="purple darken-1" type="text"></v-select>
+                                    <v-select class="rounded-lg" outlined label="ตำบล" color="purple darken-1" type="text"></v-select>
+                                    <v-text-field class="rounded-lg" outlined label="รหัสไปรษณีย์" color="purple darken-1" type="text"></v-text-field>
+                                </v-flex>
+                            </v-row>
+                            <v-flex xs12 md12 class="pa-16">
+                                <v-btn large block dark class="rounded-lg" color="purple darken-2">สมัครสมาชิก</v-btn>
+                            </v-flex>
+                        </v-flex>
+                    </v-layout>
+                </v-card>
+            </v-flex>
+        </v-container>
+        
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    const register = new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container grid-list-xs class="fill-height bg" fluid>
+            <v-flex xs12 md12 class="pa-4">
+                <v-card elevation="12" class="rounded-lg ma-6">
+                    <v-layout row wrap>
+                        <v-flex xs12 md12 class="pa-4 pt-12">
+                            <center>
+                                <h1>เข้าสู่ระบบ</h1>
+                            </center>
+                            <v-flex xs12 md12 class="pa-16 pt-12">
+                                <v-text-field class="rounded-lg" outlined label="เข้าสู่ระบบ" name="login" color="purple darken-1" prepend-inner-icon="mdi-account" type="text"></v-text-field>
+                                <v-text-field class="rounded-lg" outlined id="password" label="รหัสผ่าน" color="purple darken-1" name="password" prepend-inner-icon="mdi-lock" type="password"></v-text-field>
+                                <v-btn large block dark class="rounded-lg" color="purple darken-2">เข้าสู่ระบบ</v-btn>
+                            </v-flex>
+                        </v-flex>
+                        
+                        <v-flex xs12 md12 class="pa-16 pt-6 ">
+                           <hr>
+                           <v-flex xs12 md12 class="pl-16 pa-16 pt-6 ">
+                                <v-row >
+                                    <p>คุณยังไม่มีบัญชีผู้ใช้ใช่หรือไม่ ? </p> &nbsp
+                                    <v-btn large  dark class="rounded-lg" color="teal darken-1">สมัครสมาชิก</v-btn>
+                                </v-row>
+                            
+                            </v-flex>
+                        </v-flex>
+                    </v-layout>
+                </v-card>
+            </v-flex>
+        </v-container>
+        
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    const login = new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+    })
+  </script>
+</body>
+</html>
