@@ -1,0 +1,314 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <div>
+            <div>
+                <v-navigation-drawer v-model="drawer" app clipped>
+                  <v-list dense rounded>
+                    <v-list-item two-line class="pt-2">
+                      <v-list-item-avatar size="50">
+                        <img src="https://obs.line-scdn.net/0hrkPrzXIkLURtCwPA439SE1ddLiteZz5HCT18RzFlc3BJb2gbU25gKk4KISYTP2oaAzlnIU4INnVHOz1CAW1g/w644">
+                        </v-list-item-avatar>
+              
+                        <v-list-item-content>
+                          <h5>นางสาวส้ม สีส้ม</h5>
+                            <h6 color="grey">somsom@gmail.com</h6>
+                            </v-list-item-content>
+                        </v-list-item>
+                        <v-divider></v-divider>
+                        <v-list-item-district v-model="item" color="purple darken-2"> 
+                          <v-list-item v-for="(item, i) in items" :key="i" @click=>
+                              <v-list-item-content>
+                                  <v-list-item-title class="">{{ item.text }}</v-list-item-title>
+                              </v-list-item-content>
+                          </v-list-item>
+                      </v-list-item-district>
+      
+                  </v-navigation-drawer>
+                    <v-app-bar app clipped-left>
+                      <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+                        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+                      </v-toolbar-title>
+                      <v-text-field dense outlined hide-details prepend-inner-icon="mdi-magnify" label="ค้นหา" class="hidden-sm-and-down" >
+      
+                      </v-text-field>
+                      <v-spacer></v-spacer>
+                      <v-select dense outlined hide-details label="ประเภทการขาย" class="hidden-sm-and-down" >
+                  </v-app-bar>
+              
+              </div>
+
+              <div class="pa-5">
+              <v-flex xs12 pa-5>
+                <v-container grid-list-xs>
+                    <v-data-table dense :headers="headers" :items="desserts" :search="search" class="elevation-5 rounded-lg pa-2">
+                        <template v-slot:top>
+
+                            <v-container>
+                                <center>
+                                    <v-flex xs6 >
+                                        <h2>จัดการผู้ใช้</h2><br>
+                                        <v-divider></v-divider>
+                                    </v-flex>
+                                </center><br>
+                            </v-container>
+
+                            <div class="d-flex grow flex-wrap pa-2">
+                                <v-text-field dense class="rounded-lg " color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                                <v-spacer></v-spacer>
+                                <v-btn class="" dark class="rounded-lg" color="purple darken-2">เพิ่มผู้ใช้</v-btn>
+                                
+                            </div>
+                        </template>
+            
+                        <template v-slot:item.actions="{ item }">
+                            <v-tooltip top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon v-bind="attrs" v-on="on">
+                                        <v-icon>mdi-eye-outline</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>ดูข้อมูล</span>
+                            </v-tooltip>
+            
+                            <v-tooltip top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon v-bind="attrs" v-on="on" >
+                                        <v-icon>mdi-pencil</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>แก้ไข</span>
+                            </v-tooltip>
+                            <v-tooltip top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon v-bind="attrs" v-on="on" >
+                                        <v-icon>mdi-delete</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>ลบ</span>
+                            </v-tooltip>
+            
+                        </template>
+                    </v-data-table>
+            
+                </v-container>
+            </v-flex>
+        </div>
+            
+        </div>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    const manageUser = new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data () {
+        return {
+            drawer: null,
+            items1: [{
+                    title: 'ข้อมูลส่วนตัว',
+                },
+                {
+                    title: 'ออกจากระบบ',
+                },
+            ],
+            item: 0,
+            items: [{
+                    text: "แดชบอร์ด",
+                    icon: "mdi-chart-bell-curve-cumulative",
+                },
+                {
+                    text: "ข้อมูลส่วนตัว",
+                    icon: "mdi-chart-bell-curve-cumulative",
+                },
+                {
+                    text: "จัดการข้อมูลผู้ใช้",
+                    icon: "mdi-account",
+                },
+                {
+                    icons: "จัดการผู้ดูแล",
+                    text: "จัดการผู้ดูแล",
+                },
+                {
+                    icons: "จัดการสถานที่",
+                    text: "จัดการสถานที่",
+                },
+                {
+                    icons: "จัดการประกาศ",
+                    text: "จัดการประกาศ",
+                },
+                {
+                    icons: "รายงาน",
+                    text: "รายงาน",
+                },
+                {
+                    icons: "",
+                    text: "ออกจากระบบ",
+                    icon: "mdi-logout",
+                },
+                
+            ],
+            txt: "Hello World",
+            active: false,
+            search: '',
+        headers: [{
+                text: 'เลขบัตรประชาชน',
+                value: 'username',
+                sortable: false,
+            },
+            {
+                text: 'ชื่อ',
+                value: 'name',
+                sortable: false,
+            },
+            {
+                text: 'นามสกุล',
+                value: 'surname',
+                sortable: false,
+            },
+            {
+                text: 'เบอร์โทรศัพท์',
+                value: 'Phonenumber',
+                sortable: false,
+            },
+            {
+                text: 'จังหวัด',
+                value: 'district',
+                sortable: false,
+            },
+            {
+                text: 'จัดการ',
+                value: 'province',
+                sortable: false,
+            },
+           
+        ],
+        desserts: [],
+        editedIndex: -1,
+        editedItem: {
+            username: '',
+            name: '',
+            Phonenumber: '',
+            district: '',
+        },
+        defaultItem: {
+            username: '',
+            name: '',
+            Phonenumber: '',
+            district: '',
+        },
+
+        };
+        
+    },
+    created() {
+        this.initialize()
+    },
+    methods:{
+        initialize() {
+            this.desserts = [{
+                    username: 'ann',
+                    name: 'นางแอน',
+                    surname: 'แอนนี่ ',
+                    Phonenumber: '0914123412',
+                    email: 'ann@gmail.com',
+                    district: 'เชียงใหม่',
+                },
+                {
+                    username: 'buae',
+                    name: 'นางสาวสวย ',
+                    surname: 'คนสวย ',
+                    Phonenumber: '0812312312',
+                    email: 'buae@gmail.com',
+                    district: 'พะเยา',
+                },
+                {
+                    username: 'precha',
+                    name: 'นายปรีชา',
+                    surname: 'คนดี ',
+                    Phonenumber: '0822312312',
+                    email: 'precha@gmail.com',
+                    district: 'แพร่',
+                },
+                {
+                    username: 'seefha',
+                    name: 'นายสีฟ้า',
+                    surname: 'ฟ้าคราม ',
+                    Phonenumber: '0833333333',
+                    email: 'seefha@gmail.com',
+                    district: 'แพร่',
+                },
+                {
+                    username: 'kum',
+                    name: 'นางคำแก้ว',
+                    surname: 'แก้วบาง',
+                    Phonenumber: '0844444444',
+                    email: 'kum@gmail.com',
+                    district: 'น่าน',
+                },
+            ]
+        },
+        editItem(item) {
+            // this.editedIndex = this.desserts.indexOf(item)
+            // this.editedItem = Object.assign({}, item)
+            // this.dialog = true
+            Swal.fire({
+                title: 'คุณต้องการแก้ไข?',
+                // text: "ใช่หรือไม่",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ตกลง',
+                cancelButtonText: 'ยกเลิก',
+            }).then((result) => {
+                if (result.value) {
+                    this.editedIndex = this.desserts.indexOf(item)
+                    this.editedItem = Object.assign({}, item)
+                    this.dialog = true
+                }
+            })
+        },
+        deleteItem(item) {
+            // const index = this.desserts.indexOf(item)
+            // confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+            Swal.fire({
+                title: 'คุณต้องการลบใช่หรือไม่?',
+                // text: "ใช่หรือไม่",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ตกลง',
+                cancelButtonText: 'ยกเลิก',
+            }).then((result) => {
+                if (result.value) {
+                    const index = this.desserts.indexOf(item)
+                    this.desserts.splice(index, 1),
+                        Swal.fire(
+                            'คุณทำการลบสำเร็จ!',
+                            '',
+                            'success',
+                        )
+                }
+            })
+        },
+
+
+    }
+    })
+  </script>
+</body>
+</html>
