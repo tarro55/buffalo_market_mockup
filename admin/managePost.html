@@ -165,6 +165,16 @@
             active: false,
             search: '',
         headers: [{
+                text: 'เลขที่ประกาศ',
+                value: 'post',
+                sortable: false,
+            },
+            {
+                text: 'ชื่อผู้ประกาศ',
+                value: 'people',
+                sortable: false,
+            },
+            {
                 text: 'ชื่อสินค้า',
                 value: 'username',
                 sortable: false,
@@ -186,7 +196,7 @@
             },
             {
                 text: 'จัดการ',
-                value: 'district',
+                value: 'manage',
                 sortable: false,
             },
         ],
@@ -207,6 +217,8 @@
     methods:{
         initialize() {
             this.desserts = [{
+                    post:'1',
+                    people:'แอน แอนนี่',
                     username: 'ควายเผือก',
                     name: '',
                     price: '20000',
@@ -214,6 +226,8 @@
                     district: 'เชียงใหม่',
                 },
                 {
+                    post:'2',
+                    people:'ส้ม สีส้ม',
                     username: 'ควายไทย',
                     name: ' ',
                     price: '19000',
@@ -221,6 +235,8 @@
                     district: 'พะเยา',
                 },
                 {
+                    post:'3',
+                    people:'แดง สีแดง',
                     username: 'ควายเผือก',
                     name: '',
                     price: '18000',
@@ -228,6 +244,8 @@
                     district: 'แพร่',
                 },
                 {
+                    post:'4',
+                    people:'น้อง คำแก้ว',
                     username: 'ควาย',
                     name: '',
                     price: '22000',
@@ -235,6 +253,8 @@
                     district: 'แพร่',
                 },
                 {
+                    post:'5',
+                    people:'สมพงษ์ สมทรวง',
                     username: 'ควายเผือก',
                     name: '',
                     price: '21000',

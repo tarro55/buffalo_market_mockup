@@ -1,137 +1,155 @@
 <html>
+
 <head>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
+
 <body>
   <div id="app">
     <v-app>
       <v-main>
         <div>
-            <v-navigation-drawer v-model="drawer" app clipped>
-              <v-list dense rounded>
-                <v-list-item two-line class="pt-2">
-                  <v-list-item-avatar size="50">
-                    <img src="https://obs.line-scdn.net/0hrkPrzXIkLURtCwPA439SE1ddLiteZz5HCT18RzFlc3BJb2gbU25gKk4KISYTP2oaAzlnIU4INnVHOz1CAW1g/w644">
-                    </v-list-item-avatar>
-          
-                    <v-list-item-content>
-                      <h5>นางสาวส้ม สีส้ม</h5>
-                        <h6 color="grey">somsom@gmail.com</h6>
-                        </v-list-item-content>
-                    </v-list-item>
-                    <v-divider></v-divider>
-                    <v-list-item-district v-model="item" color="purple darken-2"> 
-                      <v-list-item v-for="(item, i) in items" :key="i" @click=>
-                          <v-list-item-content>
-                              <v-list-item-title class="">{{ item.text }}</v-list-item-title>
-                          </v-list-item-content>
-                      </v-list-item>
-                  </v-list-item-district>
-  
-              </v-navigation-drawer>
-                <v-app-bar app clipped-left>
-                  <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-                    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-                  </v-toolbar-title>
-                  <v-text-field dense outlined hide-details prepend-inner-icon="mdi-magnify" label="ค้นหา" class="hidden-sm-and-down" >
-  
-                  </v-text-field>
-                  <v-spacer></v-spacer>
-                  <v-select dense outlined hide-details label="ประเภทการขาย" class="hidden-sm-and-down" >
-              </v-app-bar>
-          
-          </div>
-        
-          <div>
-            <v-layout row wrap>
-                <v-flex  >
-                  <div class="pa-5">
-                    <v-card class="mx-auto" max-width="90%" >
-                        <div class="pa-8">
-                        <v-row justify="around">
-                            <v-col cols="5">
-                                <v-carousel class="rounded" height="100%">
-                                    <v-carousel-item 
-                                      v-for="(img,i) in img"
-                                      :key="i"
-                                      :src="img.src"
-                                      reverse-transition="fade-transition"
-                                      transition="fade-transition"
-                                    ></v-carousel-item>
-                                  </v-carousel>
-                              <!-- <v-img  src="https://picsum.photos/510/300?random" aspect-ratio="1.7"></v-img> -->
-                            </v-col>
-                      
-                        <div>
-                            <v-card-title>ควายเผือก</v-card-title>
-                            <v-card-text class="text--primary">
-                                <div>ประเภทประกาศ: ประกาศขาย</div>
-                                <div>หมวดหมู่: ---</div>
-                                <div>รายละเอียดสินค้า :  สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
-                                <div>ราคา : 20000 บาท</div>
-                                <div><v-icon>mdi-map-marker</v-icon>เชียงใหม่</div>
-                            </v-card-text>
-                        </div>
-                        </v-row>
-                    </div>
-                      <v-spacer></v-spacer>
-                      
-                    </v-card>
+          <v-navigation-drawer v-model="drawer" app clipped>
+            <v-list dense rounded>
+              <v-list-item two-line class="pt-2">
+                <v-list-item-avatar size="50">
+                  <img
+                    src="https://obs.line-scdn.net/0hrkPrzXIkLURtCwPA439SE1ddLiteZz5HCT18RzFlc3BJb2gbU25gKk4KISYTP2oaAzlnIU4INnVHOz1CAW1g/w644">
+                </v-list-item-avatar>
+
+                <v-list-item-content>
+                  <h5>นางสาวส้ม สีส้ม</h5>
+                  <h6 color="grey">somsom@gmail.com</h6>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider></v-divider>
+              <v-list-item-district v-model="item" color="purple darken-2">
+                <v-list-item v-for="(item, i) in items" :key="i"  @click="() => {}">
+                  <v-list-item-content>
+                    <v-list-item-title class="">{{ item.text }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-item-district>
+
+          </v-navigation-drawer>
+          <v-app-bar app clipped-left>
+            <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+              <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            </v-toolbar-title>
+            <v-text-field dense outlined hide-details prepend-inner-icon="mdi-magnify" label="ค้นหา"
+              class="hidden-sm-and-down">
+
+            </v-text-field>
+            <v-spacer></v-spacer>
+            <v-select dense outlined hide-details label="ประเภทการขาย" class="hidden-sm-and-down">
+          </v-app-bar>
+
+        </div>
+
+        <div>
+          <v-layout row wrap>
+            <v-flex>
+              <div class="pa-5">
+                <v-card class="mx-auto" max-width="90%">
+                  <div class="pt-5">
+                    <center>
+                      <v-flex xs8>
+                        <h3>ผู้ประกาศ</h3>
+                        <v-divider></v-divider>
+                      </v-flex>
+                    </center>
                   </div>
-                </v-flex>
-                
-                <v-flex  >
-                    <div class="pa-2">
-                      <v-card class="mx-auto" tile max-width="90%" >
-                          <div class="pa-2">
-                            
-                            <v-card-title> <h3>ผู้ประกาศ</h3></v-card-title>
-
-                            <v-flex xs12 md4></v-flex>
-                              <div class="pt-5">
-                                    <v-row justify="around ">
-                                      <v-flex xs6 >
-                                      <v-col cols="8">
-                                        <v-avatar size="35%">
-                                          <img src="https://cache.gmo2.sistacafe.com/images/uploads/summary/image/65745/9738ebc7fc580672cfc0053c43d9ad2e.jpg" >
-                                        </v-avatar>
-                                        <v-card-text >
-                                          <v-list-item>
-                                            <v-list-item-content>
-                                              <v-list-item-title class="title">แอน แอนนี่</v-list-item-title>
-                                              <v-list-item-subtitle><v-btn dark class="rounded-lg xl10" color="blue lighten-2" >แสดงรายละเอียด</v-btn></v-list-item-subtitle>
-                                            </v-list-item-content>
-                                          </v-list-item>
-                                        </v-card-text>  
-                                      </v-col>
-                                    </v-flex>
-                                    <v-flex xs6 >
-                                      <div class="text-lg-right pa-7" flat>
-                                        <div class="text--primary" right>เบอร์ติดต่อ : 0812345678  <br>
-                                        <div class="text--primary" right>วันที่ประกาศ :7/4/2020 <br> </div>
-                                      </div>
-                                      </v-flex>
-                                      
-                                  </v-row>
-                              </div>
-                            </v-flex>
-
-                            
-                          </div>
-                        </div>
-                          
-                        <v-spacer></v-spacer>
+                  <div class="pa-8">
+                    <v-row justify="around">
+                      <v-col cols="5">
+                        <v-carousel class="rounded" height="100%">
+                          <v-carousel-item v-for="(img,i) in img" :key="i" :src="img.src"
+                            reverse-transition="fade-transition" transition="fade-transition"></v-carousel-item>
+                        </v-carousel>
                         
-                      </v-card>
-                    </div>
-                  </v-flex>
+                        <!-- <v-img  src="https://picsum.photos/510/300?random" aspect-ratio="1.7"></v-img> -->
+                      </v-col>
 
-          </div>
-      </v-main>
-    </v-app>
+                      <div>
+                        <v-card-title>ควายเผือก</v-card-title>
+                        <v-card-text class="text--primary">
+                          <div>ประเภทประกาศ: ประกาศขาย</div>
+                          <div>หมวดหมู่: ---</div>
+                          <div>รายละเอียดสินค้า : สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
+                          <div>ราคา : 20000 บาท</div>
+                          <div>
+                            <v-icon>mdi-map-marker</v-icon>เชียงใหม่
+                          </div>
+                        </v-card-text>
+                      </div>
+                    </v-row>
+                  </div>
+                  <v-spacer></v-spacer>
+
+                </v-card>
+              </div>
+            </v-flex>
+
+            <v-flex>
+              <div class="pa-2">
+                <v-card class="mx-auto" tile max-width="90%">
+                  <div class="pa-2">
+                    <div class="pt-5">
+                      <center>
+                        <v-flex xs8>
+                          <h3>ผู้ประกาศ</h3>
+                          <v-divider></v-divider>
+                        </v-flex>
+                      </center>
+                    </div>
+                    <v-container class="lighten-5">
+                      <v-row wrap>
+                        <v-col cols="12" sm="6" md="8">
+                          <v-row wrap>
+                            <div class="pa-2 ml-5">
+                              <v-avatar size="55">
+                                <img
+                                  src="https://cache.gmo2.sistacafe.com/images/uploads/summary/image/65745/9738ebc7fc580672cfc0053c43d9ad2e.jpg">
+                              </v-avatar>
+                            </div>
+
+                            <div class="ml-2">
+                              <h3>แอน แอนนี่</h3>
+                              <v-btn onclick="window.location.href='sellerDeteil.html'" dark class="rounded-lg "
+                                color="blue lighten-2">แสดงรายละเอียด</v-btn>
+                            </div>
+
+                          </v-row>
+
+                        </v-col>
+                        <v-col cols="6" md="4">
+                          <div class="ml-5">
+                            <div class="text--primary">เบอร์ติดต่อ : 0812345678 <br>
+                              <div class="text--primary">วันที่ประกาศ :7/4/2020 <br> </div>
+                            </div>
+
+
+                        </v-col>
+                      </v-row>
+                    </v-container>
+            </v-flex>
+
+
+        </div>
+  </div>
+
+  <v-spacer></v-spacer>
+
+  </v-card>
+  </div>
+  </v-flex>
+
+  </div>
+  </v-main>
+  </v-app>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
@@ -140,63 +158,74 @@
     const postDetail = new Vue({
       el: '#app',
       vuetify: new Vuetify(),
-      data () {
+      data() {
         return {
-            drawer: null,
-            items1: [{
-                    title: 'ข้อมูลส่วนตัว',
-                },
-                {
-                    title: 'ออกจากระบบ',
-                },
-            ],
-            item: 0,
-            items: [{
-                    text: "หน้าหลัก",
-                    icon: "mdi-chart-bell-curve-cumulative",
-                },
-                {
-                    text: "ดูประกาศ",
-                    icon: "mdi-chart-bell-curve-cumulative",
-                },
-                {
-                    text: "ข้อมูลส่วนตัว",
-                    icon: "mdi-account",
-                },
-                {
-                    icons: "",
-                    text: "รายงานสถิติประกาศ",
-                },
-                {
-                    icons: "",
-                    text: "ออกจากระบบ",
-                    icon: "mdi-logout",
-                },
-            ],
-            img: [
+          drawer: null,
+          items1: [{
+            title: 'ข้อมูลส่วนตัว',
+          },
+          {
+            title: 'ออกจากระบบ',
+          },
+          ],
+          item: 0,
+          items: [{
+            text: "หน้าหลัก",
+            icon: "mdi-chart-bell-curve-cumulative",
+            href:'homeUser.html'
+          },
+          {
+            text: "ดูประกาศ",
+            icon: "mdi-chart-bell-curve-cumulative",
+            href:'homeUser.html'
+          },
+          {
+            text: "ข้อมูลส่วนตัว",
+            icon: "mdi-account",
+            href:'userProfile.html'
+          },
+          {
+            text: "จัดการประกาศ",
+            icon: "mdi-account",
+            href:'reportPost.html'
+          },
+          {
+            icons: "",
+            text: "รายงานสถิติประกาศ",
+            href:'reportDetail.html'
+          },
+          {
+            icons: "",
+            text: "ออกจากระบบ",
+            icon: "mdi-logout",
+            href:'homeUser.html'
+          },
+          ],
+          img: [
             {
-            src: 'https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg',
-          },
-          {
-            src: 'https://cms.kapook.com/uploads/tag/7/ID_6524_57c40c072d28f.jpg',
-          },
-          {
-            src: 'https://static.posttoday.com/media/content/2017/05/23/CD5D571EA56C486FA4B5439534DC4B81.jpg',
-          },
-          {
-            src: 'https://www.thaiagrinews.org/wp-content/uploads/2017/03/14210617531421061774l.jpg',
-          },
-          
-        ],
-        
-            txt: "Hello World",
-            active: false
-        };
-    },
-    methods:{
+              src: 'https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg',
+            },
+            {
+              src: 'https://cms.kapook.com/uploads/tag/7/ID_6524_57c40c072d28f.jpg',
+            },
+            {
+              src: 'https://static.posttoday.com/media/content/2017/05/23/CD5D571EA56C486FA4B5439534DC4B81.jpg',
+            },
+            {
+              src: 'https://www.thaiagrinews.org/wp-content/uploads/2017/03/14210617531421061774l.jpg',
+            },
 
-    }
+          ],
+
+          txt: "Hello World",
+          active: false
+        };
+      },
+      methods: {
+
+      }
     })
   </script>
 </body>
+
 </html>

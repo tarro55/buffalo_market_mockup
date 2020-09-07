@@ -1,299 +1,348 @@
 <html>
+
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
+
 <body>
-  <div id="app">
-    <v-app>
-      <v-main>
-        <div>
-            <v-navigation-drawer v-model="drawer" app clipped>
-              <v-list dense rounded>
-                <v-list-item two-line class="pt-2">
-                  <v-list-item-avatar size="50">
-                    <img src="https://obs.line-scdn.net/0hrkPrzXIkLURtCwPA439SE1ddLiteZz5HCT18RzFlc3BJb2gbU25gKk4KISYTP2oaAzlnIU4INnVHOz1CAW1g/w644">
-                    </v-list-item-avatar>
-          
-                    <v-list-item-content>
-                      <h5>นางสาวส้ม สีส้ม</h5>
-                        <h6 color="grey">somsom@gmail.com</h6>
-                        </v-list-item-content>
-                    </v-list-item>
-                    <v-divider></v-divider>
-                    <v-list-item-district v-model="item" color="purple darken-2"> 
-                      <v-list-item v-for="(item, i) in items" :key="i" @click=>
-                          <v-list-item-content>
-                              <v-list-item-title class="">{{ item.text }}</v-list-item-title>
-                          </v-list-item-content>
-                      </v-list-item>
-                  </v-list-item-district>
-  
-              </v-navigation-drawer>
-                <v-app-bar app clipped-left>
-                  <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-                    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-                  </v-toolbar-title>
-                  <v-text-field dense outlined hide-details prepend-inner-icon="mdi-magnify" label="ค้นหา" class="hidden-sm-and-down" >
-  
-                  </v-text-field>
-                  <v-spacer></v-spacer>
-                  <v-select dense outlined hide-details label="ประเภทการขาย" class="hidden-sm-and-down" >
-              </v-app-bar>
-          
-          </div>
-          
-        <div>
-            <v-layout row wrap>
-                <v-flex  >
-                  <div class="pa-5">
-                    <v-flex  class="mx-auto" max-width="90%" >
-                        <div class="pa-8">
-                            <v-card>
-                                <div class="pa-5">
-                                    <center>
-                                        <h2> จัดการประกาศ </h2><br>
-                                    </center>
+    <div id="app">
+        <v-app>
+            <v-main>
+                <div>
+                    <v-navigation-drawer v-model="drawer" app clipped>
+                        <v-list dense rounded>
+                            <v-list-item two-line class="pt-2">
+                                <v-list-item-avatar size="50">
+                                    <img
+                                        src="https://obs.line-scdn.net/0hrkPrzXIkLURtCwPA439SE1ddLiteZz5HCT18RzFlc3BJb2gbU25gKk4KISYTP2oaAzlnIU4INnVHOz1CAW1g/w644">
+                                </v-list-item-avatar>
+
+                                <v-list-item-content>
+                                    <h5>นางสาวส้ม สีส้ม</h5>
+                                    <h6 color="grey">somsom@gmail.com</h6>
+                                </v-list-item-content>
+                            </v-list-item>
+                            <v-divider></v-divider>
+                            <v-list-item-district v-model="item" color="purple darken-2">
+                                <v-list-item v-for="(item, i) in items" :key="i" @click=>
+                                    <v-list-item-content>
+                                        <v-list-item-title class="">{{ item.text }}</v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                            </v-list-item-district>
+
+                    </v-navigation-drawer>
+                    <v-app-bar app clipped-left>
+                        <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+                            <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+                        </v-toolbar-title>
+                        <v-text-field dense outlined hide-details prepend-inner-icon="mdi-magnify" label="ค้นหา"
+                            class="hidden-sm-and-down">
+
+                        </v-text-field>
+                        <v-spacer></v-spacer>
+                        <v-select dense outlined hide-details label="ประเภทการขาย" class="hidden-sm-and-down">
+                    </v-app-bar>
+
+                </div>
+
+                <div>
+                    <v-layout row wrap>
+                        <v-flex>
+                            <div class="pa-5">
+                                <v-flex class="mx-auto" max-width="90%">
+                                    <div class="pa-8">
+                                        <v-card>
+                                            <div class="pa-5">
+                                                <center>
+                                                    <h2> จัดการประกาศ </h2><br>
+                                                </center>
+                                            </div>
+                                            <v-tabs background-color="white" color="purple darken-1" left>
+                                                <v-tab>ประกาศขาย</v-tab>
+                                                <v-tab>ประกาศซื้อ</v-tab>
+
+                                                <v-tab-item class="pa-6">
+                                                    <v-hover v-slot:default="{ hover }" open-delay="200">
+                                                        <v-card :elevation="hover ? 16 : 2" class="mx-auto"
+                                                            height="auto" max-width="90%">
+                                                            <div class="pa-5">
+                                                                <v-row justify="around">
+                                                                    <v-col cols="3">
+                                                                        <v-img class="rounded"
+                                                                            src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg"
+                                                                            aspect-ratio="1.5"></v-img>
+                                                                    </v-col>
+
+                                                                    <div>
+                                                                        <v-card-title>ควายเผือก</v-card-title>
+                                                                        <v-card-text class="text--primary">
+                                                                            <div>ประเภทประกาศ: ประกาศขาย</div>
+                                                                            <div>ราคา : 20000 บาท</div>
+                                                                        </v-card-text>
+                                                                    </div>
+
+                                                                    <v-select class="rounded" :items="sell" width="50"
+                                                                        outlined label="สถานะ" color="purple darken-1"
+                                                                        type="text"></v-select>
+                                                                    <v-btn class="ma-2" dark class="rounded-lg"
+                                                                        color="teal lighten-2">แก้ไขข้อมูล</v-btn>
+                                                                </v-row>
+                                                            </div>
+                                                        </v-card>
+                                                    </v-hover>
+
+                                                    <div class="pt-8">
+                                                        <v-hover v-slot:default="{ hover }" open-delay="200">
+                                                            <v-card :elevation="hover ? 16 : 2" class="mx-auto"
+                                                                height="auto" max-width="90%">
+                                                                <div class="pa-5">
+                                                                    <v-row justify="around">
+                                                                        <v-col cols="3">
+                                                                            <v-img class="rounded"
+                                                                                src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg"
+                                                                                aspect-ratio="1.5"></v-img>
+                                                                        </v-col>
+
+                                                                        <div>
+                                                                            <v-card-title>ควายเผือก</v-card-title>
+                                                                            <v-card-text class="text--primary">
+                                                                                <div>ประเภทประกาศ: ประกาศขาย</div>
+                                                                                <div>ราคา : 20000 บาท</div>
+                                                                            </v-card-text>
+                                                                        </div>
+                                                                        <v-select class="rounded" :items="sell"
+                                                                            width="50" outlined label="สถานะ"
+                                                                            color="purple darken-1" type="text">
+                                                                        </v-select>
+                                                                        <v-btn class="ma-2" dark class="rounded-lg"
+                                                                            color="teal lighten-2">แก้ไขข้อมูล</v-btn>
+                                                                    </v-row>
+                                                                </div>
+                                                            </v-card>
+                                                        </v-hover>
+                                                    </div>
+
+                                                    <div class="pt-8">
+                                                        <v-hover v-slot:default="{ hover }" open-delay="200">
+                                                            <v-card :elevation="hover ? 16 : 2" class="mx-auto"
+                                                                height="auto" max-width="90%">
+                                                                <div class="pa-5">
+                                                                    <v-row justify="around">
+                                                                        <v-col cols="3">
+                                                                            <v-img class="rounded"
+                                                                                src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg"
+                                                                                aspect-ratio="1.5"></v-img>
+                                                                        </v-col>
+
+                                                                        <div>
+                                                                            <v-card-title>ควายเผือก</v-card-title>
+                                                                            <v-card-text class="text--primary">
+                                                                                <div>ประเภทประกาศ: ประกาศขาย</div>
+                                                                                <div>ราคา : 20000 บาท</div>
+                                                                            </v-card-text>
+                                                                        </div>
+
+                                                                        <v-select class="rounded" :items="sell"
+                                                                            width="50" outlined label="สถานะ"
+                                                                            color="purple darken-1" type="text">
+                                                                        </v-select>
+                                                                        <v-btn class="ma-2" dark class="rounded-lg"
+                                                                            color="teal lighten-2">แก้ไขข้อมูล</v-btn>
+                                                                    </v-row>
+                                                                </div>
+                                                            </v-card>
+                                                        </v-hover>
+                                                    </div>
+
+                                                </v-tab-item>
+
+                                                <v-tab-item class="pa-6">
+                                                    <v-hover v-slot:default="{ hover }" open-delay="200">
+                                                        <v-card :elevation="hover ? 16 : 2" class="mx-auto"
+                                                            height="auto" max-width="90%">
+                                                            <div class="pa-5">
+                                                                <v-row justify="around">
+                                                                    <v-col cols="3">
+                                                                        <v-img class="rounded"
+                                                                            src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg"
+                                                                            aspect-ratio="1.5"></v-img>
+                                                                    </v-col>
+
+                                                                    <div>
+                                                                        <v-card-title>ควายเผือก</v-card-title>
+                                                                        <v-card-text class="text--primary">
+                                                                            <div>ประเภทประกาศ: ประกาศซื้อ</div>
+                                                                            <div>ราคา : 20000 บาท</div>
+                                                                        </v-card-text>
+                                                                    </div>
+                                                                    <v-select class="rounded" :items="buy" width="50"
+                                                                        outlined label="สถานะ" color="purple darken-1"
+                                                                        type="text"></v-select>
+                                                                    <v-btn class="ma-2" dark class="rounded-lg"
+                                                                        color="teal lighten-2">แก้ไขข้อมูล</v-btn>
+                                                                </v-row>
+                                                            </div>
+                                                        </v-card>
+                                                    </v-hover>
+
+                                                    <div class="pt-8">
+                                                        <v-hover v-slot:default="{ hover }" open-delay="200">
+                                                            <v-card :elevation="hover ? 16 : 2" class="mx-auto"
+                                                                height="auto" max-width="90%">
+                                                                <div class="pa-5">
+                                                                    <v-row justify="around">
+                                                                        <v-col cols="3">
+                                                                            <v-img class="rounded"
+                                                                                src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg"
+                                                                                aspect-ratio="1.5"></v-img>
+                                                                        </v-col>
+
+                                                                        <div>
+                                                                            <v-card-title>ควายเผือก</v-card-title>
+                                                                            <v-card-text class="text--primary">
+                                                                                <div>ประเภทประกาศ: ประกาศซื้อ</div>
+                                                                                <div>ราคา : 20000 บาท</div>
+                                                                            </v-card-text>
+                                                                        </div>
+                                                                        <v-select class="rounded" :items="buy"
+                                                                            width="50" outlined label="สถานะ"
+                                                                            color="purple darken-1" type="text">
+                                                                        </v-select>
+                                                                        <v-btn class="ma-2" dark class="rounded-lg"
+                                                                            color="teal lighten-2">แก้ไขข้อมูล</v-btn>
+                                                                    </v-row>
+                                                                </div>
+                                                            </v-card>
+                                                        </v-hover>
+                                                    </div>
+
+                                                    <div class="pt-8">
+                                                        <v-hover v-slot:default="{ hover }" open-delay="200">
+                                                            <v-card :elevation="hover ? 16 : 2" class="mx-auto"
+                                                                height="auto" max-width="90%">
+                                                                <div class="pa-5">
+                                                                    <v-row justify="around">
+                                                                        <v-col cols="3">
+                                                                            <v-img class="rounded"
+                                                                                src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg"
+                                                                                aspect-ratio="1.5"></v-img>
+                                                                        </v-col>
+
+                                                                        <div>
+                                                                            <v-card-title>ควายเผือก</v-card-title>
+                                                                            <v-card-text class="text--primary">
+                                                                                <div>ประเภทประกาศ: ประกาศซื้อ</div>
+                                                                                <div>ราคา : 20000 บาท</div>
+                                                                            </v-card-text>
+                                                                        </div>
+                                                                        <v-select class="rounded" :items="buy"
+                                                                            width="50" outlined label="สถานะ"
+                                                                            color="purple darken-1" type="text">
+                                                                        </v-select>
+                                                                        <v-btn class="ma-2" dark class="rounded-lg"
+                                                                            color="teal lighten-2">แก้ไขข้อมูล</v-btn>
+                                                                    </v-row>
+                                                                </div>
+                                                            </v-card>
+                                                        </v-hover>
+                                                    </div>
+
+                                                </v-tab-item>
+                                            </v-tabs>
+                                        </v-card>
+                                        </v-tabs>
                                     </div>
-                                <v-tabs background-color="white" color="purple darken-1" left>
-                                  <v-tab>ประกาศขาย</v-tab>
-                                  <v-tab>ประกาศซื้อ</v-tab>
-                            
-                                  <v-tab-item class="pa-6">
-                                    <v-hover v-slot:default="{ hover }" open-delay="200">
-                                        <v-card :elevation="hover ? 16 : 2" class="mx-auto" height="auto" max-width="90%">
-                                            <div class="pa-5">
-                                                <v-row justify="around">
-                                                    <v-col cols="3">
-                                                        <v-img class="rounded" src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg" aspect-ratio="1.5"></v-img>
-                                                    </v-col>
-                                                
-                                                    <div>
-                                                        <v-card-title>ควายเผือก</v-card-title>
-                                                            <v-card-text class="text--primary">
-                                                                <div>ประเภทประกาศ: ประกาศขาย</div>
-                                                                <div>ราคา : 20000 บาท</div>
-                                                        </v-card-text>
-                                                    </div>
-
-                                                    <v-select class="rounded" :items="sell" width="50" outlined label="สถานะ" color="purple darken-1" type="text"></v-select>
-                                                    <v-btn class="ma-2" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
-                                                </v-row>
-                                            </div>
-                                        </v-card>
-                                  </v-hover>
-
-                                  <div class="pt-8">
-                                  <v-hover v-slot:default="{ hover }" open-delay="200">
-                                    <v-card :elevation="hover ? 16 : 2" class="mx-auto" height="auto" max-width="90%">
-                                        <div class="pa-5">
-                                            <v-row justify="around">
-                                                <v-col cols="3">
-                                                    <v-img class="rounded" src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg" aspect-ratio="1.5"></v-img>
-                                                </v-col>
-                                            
-                                                <div>
-                                                    <v-card-title>ควายเผือก</v-card-title>
-                                                        <v-card-text class="text--primary">
-                                                            <div>ประเภทประกาศ: ประกาศขาย</div>
-                                                            <div>ราคา : 20000 บาท</div>
-                                                    </v-card-text>
-                                                </div>
-                                                <v-select class="rounded" :items="sell" width="50" outlined label="สถานะ" color="purple darken-1" type="text"></v-select>
-                                                <v-btn class="ma-2" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
-                                            </v-row>
-                                        </div>
-                                    </v-card>
-                              </v-hover>
+                                </v-flex>
                             </div>
+                        </v-flex>
+                    </v-layout>
 
-                            <div class="pt-8">
-                                <v-hover v-slot:default="{ hover }" open-delay="200">
-                                  <v-card :elevation="hover ? 16 : 2" class="mx-auto" height="auto" max-width="90%">
-                                      <div class="pa-5">
-                                          <v-row justify="around">
-                                              <v-col cols="3">
-                                                  <v-img class="rounded" src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg" aspect-ratio="1.5"></v-img>
-                                              </v-col>
-                                          
-                                              <div>
-                                                  <v-card-title>ควายเผือก</v-card-title>
-                                                      <v-card-text class="text--primary">
-                                                          <div>ประเภทประกาศ: ประกาศขาย</div>
-                                                          <div>ราคา : 20000 บาท</div>
-                                                  </v-card-text>
-                                              </div>
+                </div>
+            </v-main>
+        </v-app>
+    </div>
 
-                                              <v-select class="rounded" :items="sell" width="50" outlined label="สถานะ" color="purple darken-1" type="text"></v-select>
-                                              <v-btn class="ma-2" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
-                                          </v-row>
-                                      </div>
-                                  </v-card>
-                            </v-hover>
-                          </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        const reportPost = new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+            tab: null,
+            data() {
+                return {
+                    drawer: null,
+                    items1: [{
+                        title: 'ข้อมูลส่วนตัว',
+                    },
+                    {
+                        title: 'ออกจากระบบ',
+                    },
+                    ],
+                    item: 0,
+                    items: [{
+                        text: "หน้าหลัก",
+                        icon: "mdi-chart-bell-curve-cumulative",
+                    },
+                    {
+                        text: "ดูประกาศ",
+                        icon: "mdi-chart-bell-curve-cumulative",
+                    },
+                    {
+                        text: "ข้อมูลส่วนตัว",
+                        icon: "mdi-account",
+                    },
+                    {
+                        text: "จัดการประกาศ",
+                        icon: "mdi-account",
+                    },
+                    {
+                        icons: "",
+                        text: "รายงานสถิติประกาศ",
+                    },
+                    {
+                        icons: "",
+                        text: "ออกจากระบบ",
+                        icon: "mdi-logout",
+                    },
+                    ],
 
-                                  </v-tab-item>
+                    sell: [{
+                        text: 'ยกเลิกการขาย'
+                    },
+                    {
+                        text: 'ขายได้แล้ว'
+                    },
+                    {
+                        text: 'รีโพส'
+                    },
+                    ],
+                    buy: [{
+                        text: 'ยกเลิกการซื้อ'
+                    },
+                    {
+                        text: 'ได้รับสินค้าแล้ว'
+                    },
+                    {
+                        text: 'รีโพส'
+                    },
+                    ],
 
-                                  <v-tab-item class="pa-6">
-                                    <v-hover v-slot:default="{ hover }" open-delay="200">
-                                        <v-card :elevation="hover ? 16 : 2" class="mx-auto" height="auto" max-width="90%">
-                                            <div class="pa-5">
-                                                <v-row justify="around">
-                                                    <v-col cols="3">
-                                                        <v-img class="rounded" src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg" aspect-ratio="1.5"></v-img>
-                                                    </v-col>
-                                                
-                                                    <div>
-                                                        <v-card-title>ควายเผือก</v-card-title>
-                                                            <v-card-text class="text--primary">
-                                                                <div>ประเภทประกาศ: ประกาศซื้อ</div>
-                                                                <div>ราคา : 20000 บาท</div>
-                                                        </v-card-text>
-                                                    </div>
-                                                    <v-select class="rounded" :items="buy" width="50" outlined label="สถานะ" color="purple darken-1" type="text"></v-select>
-                                                    <v-btn class="ma-2" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
-                                                </v-row>
-                                            </div>
-                                        </v-card>
-                                  </v-hover>
 
-                                  <div class="pt-8">
-                                  <v-hover v-slot:default="{ hover }" open-delay="200">
-                                    <v-card :elevation="hover ? 16 : 2" class="mx-auto" height="auto" max-width="90%">
-                                        <div class="pa-5">
-                                            <v-row justify="around">
-                                                <v-col cols="3">
-                                                    <v-img class="rounded" src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg" aspect-ratio="1.5"></v-img>
-                                                </v-col>
-                                            
-                                                <div>
-                                                    <v-card-title>ควายเผือก</v-card-title>
-                                                        <v-card-text class="text--primary">
-                                                            <div>ประเภทประกาศ: ประกาศซื้อ</div>
-                                                            <div>ราคา : 20000 บาท</div>
-                                                    </v-card-text>
-                                                </div>
-                                                <v-select class="rounded" :items="buy" width="50" outlined label="สถานะ" color="purple darken-1" type="text"></v-select>
-                                                <v-btn class="ma-2" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
-                                            </v-row>
-                                        </div>
-                                    </v-card>
-                              </v-hover>
-                            </div>
 
-                            <div class="pt-8">
-                                <v-hover v-slot:default="{ hover }" open-delay="200">
-                                  <v-card :elevation="hover ? 16 : 2" class="mx-auto" height="auto" max-width="90%">
-                                      <div class="pa-5">
-                                          <v-row justify="around">
-                                              <v-col cols="3">
-                                                  <v-img class="rounded" src="https://cms.kapook.com/uploads/tag/27/ID_26298_58fd6f520983b.jpg" aspect-ratio="1.5"></v-img>
-                                              </v-col>
-                                          
-                                              <div>
-                                                  <v-card-title>ควายเผือก</v-card-title>
-                                                      <v-card-text class="text--primary">
-                                                          <div>ประเภทประกาศ: ประกาศซื้อ</div>
-                                                          <div>ราคา : 20000 บาท</div>
-                                                  </v-card-text>
-                                              </div>
-                                              <v-select class="rounded" :items="buy" width="50" outlined label="สถานะ" color="purple darken-1" type="text"></v-select>
-                                                    <v-btn class="ma-2" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
-                                          </v-row>
-                                      </div>
-                                  </v-card>
-                            </v-hover>
-                          </div>
-
-                                  </v-tab-item>
-                                </v-tabs>
-                              </v-card>
-                        </v-tabs>
-                    </div>
-                    </v-flex >
-                    </div>
-                </v-flex >
-            </v-layout>
-                        
-        </div>
-      </v-main>
-    </v-app>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-  <script>
-    const reportPost = new Vue({
-      el: '#app',
-      vuetify: new Vuetify(),
-      tab: null,
-      data () {
-        return {
-            drawer: null,
-            items1: [{
-                    title: 'ข้อมูลส่วนตัว',
-                },
-                {
-                    title: 'ออกจากระบบ',
-                },
-            ],
-            item: 0,
-            items: [{
-                    text: "หน้าหลัก",
-                    icon: "mdi-chart-bell-curve-cumulative",
-                },
-                {
-                    text: "ดูประกาศ",
-                    icon: "mdi-chart-bell-curve-cumulative",
-                },
-                {
-                    text: "ข้อมูลส่วนตัว",
-                    icon: "mdi-account",
-                },
-                {
-                    icons: "",
-                    text: "รายงานสถิติประกาศ",
-                },
-                {
-                    icons: "",
-                    text: "ออกจากระบบ",
-                    icon: "mdi-logout",
-                },
-            ],
-
-            sell: [{
-                text: 'ยกเลิกการขาย'
+                    txt: "Hello World",
+                    active: false
+                };
             },
-            {
-                text: 'ขายได้แล้ว'
-            },
-            {
-                text: 'รีโพส'
-            },
-        ],
-        buy: [{
-                text: 'ยกเลิกการซื้อ'
-            },
-            {
-                text: 'ได้รับสินค้าแล้ว'
-            },
-            {
-                text: 'รีโพส'
-            },
-        ],
-       
-            
-        
-            txt: "Hello World",
-            active: false
-        };
-    },
-    methods:{
+            methods: {
 
-    }
-    })
-  </script>
+            }
+        })
+    </script>
 </body>
+
 </html>

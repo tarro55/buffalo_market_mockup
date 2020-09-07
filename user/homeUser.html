@@ -1,10 +1,12 @@
 <html>
+
 <head>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
+
 <body>
   <div id="app">
     <v-app>
@@ -14,56 +16,114 @@
             <v-list dense rounded>
               <v-list-item two-line class="pt-2">
                 <v-list-item-avatar size="50">
-                  <img src="https://obs.line-scdn.net/0hrkPrzXIkLURtCwPA439SE1ddLiteZz5HCT18RzFlc3BJb2gbU25gKk4KISYTP2oaAzlnIU4INnVHOz1CAW1g/w644">
-                  </v-list-item-avatar>
-        
+                  <img
+                    src="https://obs.line-scdn.net/0hrkPrzXIkLURtCwPA439SE1ddLiteZz5HCT18RzFlc3BJb2gbU25gKk4KISYTP2oaAzlnIU4INnVHOz1CAW1g/w644">
+                </v-list-item-avatar>
+
+                <v-list-item-content>
+                  <h5>นางสาวส้ม สีส้ม</h5>
+                  <h6 color="grey">somsom@gmail.com</h6>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider></v-divider>
+              <v-list-item-district v-model="item" color="purple darken-2">
+                <v-list-item v-for="(item, i) in items" :key="i" @click=>
                   <v-list-item-content>
-                    <h5>นางสาวส้ม สีส้ม</h5>
-                      <h6 color="grey">somsom@gmail.com</h6>
-                      </v-list-item-content>
-                  </v-list-item>
-                  <v-divider></v-divider>
-                  <v-list-item-district v-model="item" color="purple darken-2"> 
-                    <v-list-item v-for="(item, i) in items" :key="i" @click=>
-                        <v-list-item-content>
-                            <v-list-item-title class="">{{ item.text }}</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                </v-list-item-district>
+                    <v-list-item-title class="">{{ item.text }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-item-district>
 
-            </v-navigation-drawer>
-              <v-app-bar app clipped-left>
-                <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-                  <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-                </v-toolbar-title>
-                <v-text-field dense outlined hide-details prepend-inner-icon="mdi-magnify" label="ค้นหา" class="hidden-sm-and-down" >
+          </v-navigation-drawer>
+          <v-app-bar app clipped-left>
+            <v-toolbar-title style="width: 100%" class="ml-0 pl-3">
+              <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            </v-toolbar-title>
+            <v-flex xs8 class="pr-3">
+              <v-text-field dense outlined hide-details prepend-inner-icon="mdi-magnify" label="ค้นหา"
+                class="hidden-sm-and-down">
+              </v-text-field>
+            </v-flex>
 
-                </v-text-field>
-                <v-spacer></v-spacer>
-                <v-select dense outlined hide-details label="ประเภทการขาย" class="hidden-sm-and-down" >
-            </v-app-bar>
-        
+            <v-flex xs4 class="pr-3">
+              <v-select dense outlined hide-details label="ประเภทประกาศ" class="d-flex"></v-select>
+            </v-flex>
+            
+            <v-spacer></v-spacer>
+            <v-btn onclick="window.location.href='sellUser.html'" class="ma-2" dark class="rounded-lg xl10" color="blue lighten-2">ประกาศขาย</v-btn>
+            <v-btn onclick="window.location.href='buyUser.html'" class="ma-2" dark class="rounded-lg" color="teal lighten-2">ประกาศซื้อ</v-btn>
+          </v-app-bar>
+
         </div>
 
-        <div class="text-center pa-5">
-          <v-btn class="ma-2 btn" dark class="rounded-lg xl10" color="blue lighten-2" >ประกาศขาย</v-btn>
+        <!-- <div class="text-center pa-5">
+          <v-btn class="ma-2 btn" dark class="rounded-lg xl10" color="blue lighten-2">ประกาศขาย</v-btn>
           <v-btn class="ma-2 btn" dark class="rounded-lg" color="teal lighten-2">ประกาศซื้อ</v-btn>
-          
-        </div>
-        
+        </div> -->
+
         <div>
           <v-layout row wrap>
-            <v-flex xs3 md4 >
+            <v-flex xs3 md4>
               <div class="pa-5">
-                <v-card class="mx-auto" max-width="350" >
-                  <v-img class="white--text align-end" height="150px" src="https://pbs.twimg.com/media/EGLvA_4U4AAJ-cI.jpg"></v-img>
+                <v-card class="mx-auto" max-width="350">
+                  <v-img class="white--text align-end" height="150px"
+                    src="https://pbs.twimg.com/media/EGLvA_4U4AAJ-cI.jpg"></v-img>
                   <v-card-title>ควายเผือก</v-card-title>
                   <v-card-text class="text--primary">
                     <div>ประเภทประกาศ: ประกาศขาย</div>
                     <div>หมวดหมู่: ---</div>
-                    <div>รายละเอียดสินค้า :  สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
+                    <div>รายละเอียดสินค้า : สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
                     <div>ราคา : 20000 บาท</div>
-                    <div><v-icon>mdi-map-marker</v-icon>เชียงใหม่</div>
+                    <div>
+                      <v-icon>mdi-map-marker</v-icon>เชียงใหม่
+                    </div>
+                  </v-card-text>
+                  <v-spacer></v-spacer>
+                  <v-card-actions>
+                    <v-btn onclick="window.location.href='postDetails.html'" color="purple darken-1" text>แสดงรายละเอียด</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </div>
+            </v-flex>
+
+            <v-flex xs3 md4>
+              <div class="pa-5">
+                <v-card class="mx-auto" max-width="350">
+                  <v-img class="white--text align-end" height="150px"
+                    src="https://static.posttoday.com/media/content/2017/05/23/CD5D571EA56C486FA4B5439534DC4B81.jpg">
+                  </v-img>
+                  <v-card-title>ควายเผือก</v-card-title>
+                  <v-card-text class="text--primary">
+                    <div>ประเภทประกาศ: ประกาศขาย</div>
+                    <div>หมวดหมู่: ---</div>
+                    <div>รายละเอียดสินค้า : สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
+                    <div>ราคา : 20000 บาท</div>
+                    <div>
+                      <v-icon>mdi-map-marker</v-icon>เชียงใหม่
+                    </div>
+                  </v-card-text>
+                  <v-spacer></v-spacer>
+                  <v-card-actions>
+                    <v-btn onclick="window.location.href='postDetails.html'" color="purple darken-1" text>แสดงรายละเอียด</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </div>
+            </v-flex>
+
+            <v-flex xs3 md4>
+              <div class="pa-5">
+                <v-card class="mx-auto" max-width="350">
+                  <v-img class="white--text align-end" height="150px"
+                    src="https://cms.kapook.com/uploads/tag/7/ID_6524_57c40c072d28f.jpg"></v-img>
+                  <v-card-title>ควายเผือก</v-card-title>
+                  <v-card-text class="text--primary">
+                    <div>ประเภทประกาศ: ประกาศขาย</div>
+                    <div>หมวดหมู่: ---</div>
+                    <div>รายละเอียดสินค้า : สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
+                    <div>ราคา : 20000 บาท</div>
+                    <div>
+                      <v-icon>mdi-map-marker</v-icon>เชียงใหม่
+                    </div>
                   </v-card-text>
                   <v-spacer></v-spacer>
                   <v-card-actions>
@@ -73,17 +133,21 @@
               </div>
             </v-flex>
 
-            <v-flex xs3 md4 >
+            <v-flex xs3 md4>
               <div class="pa-5">
-                <v-card class="mx-auto" max-width="350" >
-                  <v-img class="white--text align-end" height="150px" src="https://static.posttoday.com/media/content/2017/05/23/CD5D571EA56C486FA4B5439534DC4B81.jpg"></v-img>
+                <v-card class="mx-auto" max-width="350">
+                  <v-img class="white--text align-end" height="150px"
+                    src="https://lh3.googleusercontent.com/proxy/YArtISLfK-mPsOsP-USYifm1DF-5Q1sETYVfglZRj-23Gru3UtwFu-VMmAGEtHxdD69llgVmeLTB7-E3mHNMZm11BfMSdeMrDyNcvp4-I7C2x5sM386Itm77kEpb_l-CBYkEaEzc0HmJ0smdlhtaZ4xRDW1jJEzlrQLNEpGf1pr7Efa0jiyA20uv4jBdHynzVT5M5A">
+                  </v-img>
                   <v-card-title>ควายเผือก</v-card-title>
                   <v-card-text class="text--primary">
                     <div>ประเภทประกาศ: ประกาศขาย</div>
                     <div>หมวดหมู่: ---</div>
-                    <div>รายละเอียดสินค้า :  สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
+                    <div>รายละเอียดสินค้า : สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
                     <div>ราคา : 20000 บาท</div>
-                    <div><v-icon>mdi-map-marker</v-icon>เชียงใหม่</div>
+                    <div>
+                      <v-icon>mdi-map-marker</v-icon>เชียงใหม่
+                    </div>
                   </v-card-text>
                   <v-spacer></v-spacer>
                   <v-card-actions>
@@ -93,17 +157,22 @@
               </div>
             </v-flex>
 
-            <v-flex xs3 md4 >
+            <v-flex xs3 md4>
               <div class="pa-5">
-                <v-card class="mx-auto" max-width="350" >
-                  <v-img class="white--text align-end" height="150px" src="https://cms.kapook.com/uploads/tag/7/ID_6524_57c40c072d28f.jpg"></v-img>
+                <v-card class="mx-auto" max-width="350">
+                  <v-img class="white--text align-end" height="150px"
+                    src="https://www.thaiagrinews.org/wp-content/uploads/2017/03/14210617531421061774l.jpg"></v-img>
                   <v-card-title>ควายเผือก</v-card-title>
                   <v-card-text class="text--primary">
                     <div>ประเภทประกาศ: ประกาศขาย</div>
                     <div>หมวดหมู่: ---</div>
-                    <div>รายละเอียดสินค้า :  สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
+                    <div>รายละเอียดสินค้า : สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
                     <div>ราคา : 20000 บาท</div>
-                    <div><v-icon>mdi-map-marker</v-icon>เชียงใหม่</div>
+                    <div>
+                      <v-icon>mdi-map-marker</v-icon>เชียงใหม่
+                    </div>
+
+
                   </v-card-text>
                   <v-spacer></v-spacer>
                   <v-card-actions>
@@ -113,59 +182,21 @@
               </div>
             </v-flex>
 
-            <v-flex xs3 md4 >
+            <v-flex xs3 md4>
               <div class="pa-5">
-                <v-card class="mx-auto" max-width="350" >
-                  <v-img class="white--text align-end" height="150px" src="https://lh3.googleusercontent.com/proxy/YArtISLfK-mPsOsP-USYifm1DF-5Q1sETYVfglZRj-23Gru3UtwFu-VMmAGEtHxdD69llgVmeLTB7-E3mHNMZm11BfMSdeMrDyNcvp4-I7C2x5sM386Itm77kEpb_l-CBYkEaEzc0HmJ0smdlhtaZ4xRDW1jJEzlrQLNEpGf1pr7Efa0jiyA20uv4jBdHynzVT5M5A"></v-img>
+                <v-card class="mx-auto" max-width="350">
+                  <v-img class="white--text align-end" height="150px"
+                    src="https://siamrath.co.th/files/styles/1140/public/img/20180807/afad99ae9bbb0b6a29d966a47053c6af1f6db11b37766e61a75f0c4fd2e5f56f.jpg?itok=stJUVzyb">
+                  </v-img>
                   <v-card-title>ควายเผือก</v-card-title>
                   <v-card-text class="text--primary">
                     <div>ประเภทประกาศ: ประกาศขาย</div>
                     <div>หมวดหมู่: ---</div>
-                    <div>รายละเอียดสินค้า :  สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
+                    <div>รายละเอียดสินค้า : สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
                     <div>ราคา : 20000 บาท</div>
-                    <div><v-icon>mdi-map-marker</v-icon>เชียงใหม่</div>
-                  </v-card-text>
-                  <v-spacer></v-spacer>
-                  <v-card-actions>
-                    <v-btn color="purple darken-1" text>แสดงรายละเอียด</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </div>
-            </v-flex>
-
-            <v-flex xs3 md4 >
-              <div class="pa-5">
-                <v-card class="mx-auto" max-width="350" >
-                  <v-img class="white--text align-end" height="150px" src="https://www.thaiagrinews.org/wp-content/uploads/2017/03/14210617531421061774l.jpg"></v-img>
-                  <v-card-title>ควายเผือก</v-card-title>
-                  <v-card-text class="text--primary">
-                    <div>ประเภทประกาศ: ประกาศขาย</div>
-                    <div>หมวดหมู่: ---</div>
-                    <div>รายละเอียดสินค้า :  สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
-                    <div>ราคา : 20000 บาท</div>
-                    <div><v-icon>mdi-map-marker</v-icon>เชียงใหม่</div>
-                    
-                    
-                  </v-card-text>
-                  <v-spacer></v-spacer>
-                  <v-card-actions>
-                    <v-btn color="purple darken-1" text>แสดงรายละเอียด</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </div>
-            </v-flex>
-
-            <v-flex xs3 md4 >
-              <div class="pa-5">
-                <v-card class="mx-auto" max-width="350" >
-                  <v-img class="white--text align-end" height="150px" src="https://siamrath.co.th/files/styles/1140/public/img/20180807/afad99ae9bbb0b6a29d966a47053c6af1f6db11b37766e61a75f0c4fd2e5f56f.jpg?itok=stJUVzyb"></v-img>
-                  <v-card-title>ควายเผือก</v-card-title>
-                  <v-card-text class="text--primary">
-                    <div>ประเภทประกาศ: ประกาศขาย</div>
-                    <div>หมวดหมู่: ---</div>
-                    <div>รายละเอียดสินค้า :  สีเผือก พันธุ์ไทย สูง 120 ซม. อายุ 5 ปี</div>
-                    <div>ราคา : 20000 บาท</div>
-                    <div><v-icon>mdi-map-marker</v-icon>เชียงใหม่</div>
+                    <div>
+                      <v-icon>mdi-map-marker</v-icon>เชียงใหม่
+                    </div>
                   </v-card-text>
                   <v-spacer></v-spacer>
                   <v-card-actions>
@@ -176,8 +207,8 @@
             </v-flex>
 
           </v-layout>
-      </div>
-    
+        </div>
+
       </v-main>
     </v-app>
   </div>
@@ -188,57 +219,62 @@
     const dashbord = new Vue({
       el: '#app',
       vuetify: new Vuetify(),
-      data () {
+      data() {
         return {
-            drawer: null,
-            items1: [{
-                    title: 'ข้อมูลส่วนตัว',
-                },
-                {
-                    title: 'ออกจากระบบ',
-                },
-            ],
-            item: 0,
-            items: [{
-                    text: "หน้าหลัก",
-                    icon: "mdi-chart-bell-curve-cumulative",
-                },
-                {
-                    text: "ดูประกาศ",
-                    icon: "mdi-chart-bell-curve-cumulative",
-                },
-                {
-                    text: "ข้อมูลส่วนตัว",
-                    icon: "mdi-account",
-                },
-                {
-                    icons: "",
-                    text: "รายงานสถิติประกาศ",
-                },
-                {
-                    icons: "",
-                    text: "ออกจากระบบ",
-                    icon: "mdi-logout",
-                },
-            ],
-            txt: "Hello World",
-            active: false
+          drawer: null,
+          items1: [{
+            title: 'ข้อมูลส่วนตัว',
+          },
+          {
+            title: 'ออกจากระบบ',
+          },
+          ],
+          item: 0,
+          items: [{
+            text: "หน้าหลัก",
+            icon: "mdi-chart-bell-curve-cumulative",
+          },
+          {
+            text: "ดูประกาศ",
+            icon: "mdi-chart-bell-curve-cumulative",
+          },
+          {
+            text: "ข้อมูลส่วนตัว",
+            icon: "mdi-account",
+          },
+          {
+            text: "จัดการประกาศ",
+            icon: "mdi-account",
+          },
+          {
+            icons: "",
+            text: "รายงานสถิติประกาศ",
+          },
+          {
+            icons: "",
+            text: "ออกจากระบบ",
+            icon: "mdi-logout",
+          },
+          ],
+          txt: "Hello World",
+          active: false
         };
-    },
-    methods:{
+      },
+      methods: {
 
-    }
-    },)
-    
-    
+      }
+    })
+
+
   </script>
 
   <style>
     .btn {
-      width: 20%;
-      min-width: 30%;
+      width: 10;
+      min-width: 10%;
     }
   </style>
-  
+
 </body>
+
 </html>

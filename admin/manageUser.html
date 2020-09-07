@@ -37,11 +37,9 @@
                       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
                         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
                       </v-toolbar-title>
-                      <v-text-field dense outlined hide-details prepend-inner-icon="mdi-magnify" label="ค้นหา" class="hidden-sm-and-down" >
-      
+                      
                       </v-text-field>
                       <v-spacer></v-spacer>
-                      <v-select dense outlined hide-details label="ประเภทการขาย" class="hidden-sm-and-down" >
                   </v-app-bar>
               
               </div>
@@ -62,9 +60,9 @@
                             </v-container>
 
                             <div class="d-flex grow flex-wrap pa-2">
-                                <v-text-field dense class="rounded-lg " color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                                <v-text-field dense class="rounded-lg " color="purple darken-2" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                                 <v-spacer></v-spacer>
-                                <v-btn class="" dark class="rounded-lg" color="purple darken-2">เพิ่มผู้ใช้</v-btn>
+                                <v-btn onclick="window.location.href='addUser.html'" dark class="rounded-lg" color="purple darken-2">เพิ่มผู้ใช้</v-btn>
                                 
                             </div>
                         </template>

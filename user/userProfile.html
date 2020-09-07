@@ -78,10 +78,8 @@
                                         <h3>ข้อมูลเกี่ยวกับการขาย</h3>
                                     </v-tab>
                                     
-                                    
-                                
                                     <v-tab-item>
-                                        <v-container grid-list-xs class="fill-height bg" fluid>
+                                        <v-container grid-list-xs class="height " fluid>
                                             <v-flex xs12 md12 class="pa-4">
                                                 <v-layout row wrap>
                                                     <v-flex xs12 md12 class="pl-16 ">
@@ -94,6 +92,13 @@
                                                                 <div>อีเมล : ann@gmail.com</div>
                                                             </v-flex>
                                                             <v-flex xs6 md6 class="pa-2">
+                                                                <div>ที่อยู่ : 13 หมู่ 12</div>
+                                                                <div>ตำบล : แม่กา</div>
+                                                                <div>อำเภอ : เมือง</div>
+                                                                <div>จังหวัด : พะเยา</div>
+                                                                <div>รหัสไปรษณีย์ : 56000</div>
+                                                            </v-flex>
+                                                            <v-flex xs6 md6 class="pa-2">
                                                                 <div>รูปบัตรประจำตัวประชาชน </div>
                                                                 <v-img class="rounded-lg" height="110" width="200" src="https://www.snnleasing.com/images/credit/namecard.png"></v-img>
                                                                 </v-flex>
@@ -104,14 +109,14 @@
                                             </v-flex>
                                         </v-container>
                                         <div class="text-md-right">
-                                            <v-btn class="ma-2 btn" dark class="rounded-lg xl10" color="purple darken-1" >เปลี่ยนรหัสผ่าน</v-btn>
-                                            <v-btn class="ma-2 btn" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
+                                            <v-btn onclick="window.location.href='changePassword.html'" class="ma-2 btn" dark class="rounded-lg xl10" color="purple darken-1" >เปลี่ยนรหัสผ่าน</v-btn>
+                                            <v-btn onclick="window.location.href='editProfile.html'" class="ma-2 btn" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
                                             
                                           </div>
                                     </v-tab-item>
 
                                     <v-tab-item>
-                                        <v-container grid-list-xs class="fill-height bg" fluid>
+                                        <v-container grid-list-xs class="height " fluid>
                                             <v-flex xs12 md12 class="pa-4">
                                                 <v-layout row wrap>
                                                     <v-flex xs12 md12 class="pl-16 ">
@@ -119,8 +124,7 @@
                                                             <v-flex xs6 md6 class="pa-2 ">
                                                                 <div>ชื่อทางการค้า : แอนนี่ฟาร์ม</div>
                                                                 <div>ช่องทางการติดต่ออื่นๆ : ไอดีไลน์ ann</div>
-                                                                <div>ละติจูด : 134.33</div>
-                                                                <div>ลองจิจูด : 234.22</div>
+                                                                <div>เบอร์โทรศัพท์ : 0845216547</div>
                                                             </v-flex>
                                                             <v-flex xs6 md6 class="pa-2">
                                                                 <div>ที่อยู่ : 13 หมู่ 12</div>
@@ -128,14 +132,14 @@
                                                                 <div>อำเภอ : เมือง</div>
                                                                 <div>จังหวัด : พะเยา</div>
                                                                 <div>รหัสไปรษณีย์ : 56000</div>
-                                                                </v-flex>
+                                                            </v-flex>
                                                         </v-row>
                                                     </v-flex>
                                                 </v-layout>
                                             </v-flex>
                                         </v-container>
                                         <div class="text-md-right">
-                                            <v-btn class="ma-2 btn" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
+                                            <v-btn onclick="window.location.href='editProfile.html'" class="ma-2 btn" dark class="rounded-lg" color="teal lighten-2">แก้ไขข้อมูล</v-btn>
                                             
                                           </div>
                                     </v-tab-item>
@@ -181,6 +185,10 @@
                 },
                 {
                     text: "ข้อมูลส่วนตัว",
+                    icon: "mdi-account",
+                },
+                {
+                    text: "จัดการประกาศ",
                     icon: "mdi-account",
                 },
                 {
